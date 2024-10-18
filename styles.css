@@ -415,48 +415,43 @@ p {
     position: relative;
     height: 100vh;
     margin-top: 60px;
+    background: url('F40-salt-flats.jpg') no-repeat center center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--color-light);
     text-align: center;
-    overflow: hidden;
 }
 
-.background-video {
+.hero-section::before {
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    /* Removed brightness filter */
-    z-index: -1; /* Adjusted z-index after removing overlay */
+    background-color: var(--color-overlay);
+    z-index: 1;
 }
 
-.hero-content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: var(--spacing-lg); /* Add padding to avoid text touching the edges */
-    z-index: 1; /* Ensure the content is above the video */
-    box-sizing: border-box; /* Include padding in height and width calculations */
+.hero-overlay {
+    position: relative;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: var(--spacing-lg) var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    max-width: 800px;
+    animation: fadeInUp 1s ease-out forwards;
 }
 
 .hero-content h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
     margin-bottom: var(--spacing-sm);
     font-family: var(--font-primary);
 }
 
 .hero-content p {
-    font-size: var(--font-size-medium);
+    font-size: var(--font-size-large);
     margin-bottom: var(--spacing-lg);
 }
 
@@ -467,9 +462,9 @@ p {
 .btn-primary {
     background-color: var(--color-accent);
     color: var(--color-light);
-    padding: var(--spacing-xs) var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-lg);
     border-radius: var(--radius-full);
-    font-size: var(--font-size-small);
+    font-size: var(--font-size-medium);
     transition: background-color var(--transition-speed) var(--transition-ease),
                 transform var(--transition-speed) var(--transition-ease);
     display: inline-flex;
@@ -494,33 +489,6 @@ p {
     to {
         opacity: 1;
         transform: translateY(0);
-    }
-}
-
-@media (max-width: 768px) {
-    .hero-section {
-        height: 70vh; /* Reduce height for mobile view to fit better */
-    }
-
-    .background-video {
-        object-fit: cover; /* Ensure cover for mobile */
-    }
-
-    .hero-content {
-        padding: var(--spacing-md); /* Reduce padding for mobile */
-    }
-
-    .hero-content h1 {
-        font-size: 1.75rem;
-    }
-
-    .hero-content p {
-        font-size: var(--font-size-small);
-    }
-
-    .btn-primary {
-        padding: var(--spacing-xs) var(--spacing-sm);
-        font-size: var(--font-size-small);
     }
 }
 
@@ -944,10 +912,6 @@ p {
    Personalized Recommendations Section Styles
 ========================= */
 
-/* =========================
-   Personalized Recommendations Section Styles
-========================= */
-
 .recommendations-section {
     padding: var(--spacing-xl) 0;
     background-color: var(--color-secondary);
@@ -968,7 +932,7 @@ p {
     padding: var(--spacing-md);
 }
 
-.article-card { /* Use the same class name as the carousel section for consistency */
+.article-grid-item {
     background-color: var(--color-card);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-md);
@@ -979,12 +943,12 @@ p {
     flex-direction: column;
 }
 
-.article-card:hover {
+.article-grid-item:hover {
     transform: translateY(-10px);
     box-shadow: var(--shadow-lg);
 }
 
-.article-card img {
+.article-grid-item img {
     width: 100%;
     height: 180px;
     object-fit: cover;
@@ -1013,18 +977,6 @@ p {
 
 .article-content .btn-secondary {
     align-self: flex-start;
-    color: var(--color-light);
-    background-color: var(--color-accent);
-    padding: var(--spacing-xs) var(--spacing-md);
-    border-radius: var(--radius-md);
-    text-decoration: none;
-    transition: background-color var(--transition-speed) var(--transition-ease),
-                transform var(--transition-speed) var(--transition-ease);
-}
-
-.article-content .btn-secondary:hover {
-    background-color: darken(var(--color-accent), 10%);
-    transform: translateY(-2px);
 }
 
 /* =========================
