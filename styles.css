@@ -521,11 +521,12 @@ p {
 
 .news-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjust minimum width */
     gap: var(--spacing-lg);
     padding: var(--spacing-md);
 }
 
+/* News card styling */
 .news-card {
     background-color: var(--color-card);
     border-radius: var(--radius-md);
@@ -535,6 +536,7 @@ p {
                 box-shadow var(--transition-speed) var(--transition-ease);
     display: flex;
     flex-direction: column;
+    height: 100%; /* Ensure the card grows to fit the content */
 }
 
 .news-card:hover {
@@ -544,7 +546,7 @@ p {
 
 .news-card img {
     width: 100%;
-    height: 180px;
+    height: 220px; /* Increase height to show more of the image */
     object-fit: cover;
 }
 
@@ -573,6 +575,7 @@ p {
     align-self: flex-start;
 }
 
+/* Link underlining effect */
 .article-card a {
     font-size: var(--font-size-medium);
     position: relative;
@@ -594,6 +597,42 @@ p {
 .article-card a:focus::after {
     width: 95px;
 }
+
+/* =========================
+   Mobile-Specific Styles
+========================= */
+
+@media (max-width: 768px) {
+    .latest-news-section {
+        padding: var(--spacing-lg) var(--spacing-sm); /* Reduce padding for mobile */
+    }
+
+    .news-grid {
+        grid-template-columns: 1fr; /* Make cards full-width on mobile */
+        gap: var(--spacing-md); /* Reduce gap between cards */
+    }
+
+    .news-card {
+        height: auto; /* Let cards adjust naturally to fit their content */
+    }
+
+    .news-card img {
+        height: 180px; /* Adjust image height to be smaller for mobile */
+    }
+
+    .news-content h3 {
+        font-size: 1.25rem; /* Decrease heading size for better readability on small screens */
+    }
+
+    .news-content p {
+        font-size: var(--font-size-small); /* Reduce paragraph text size for better fit */
+    }
+
+    .news-content .btn-secondary {
+        font-size: var(--font-size-small); /* Adjust button text size for mobile */
+    }
+}
+
 
 /* =========================
    Featured Reviews Section Styles
