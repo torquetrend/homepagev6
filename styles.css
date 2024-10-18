@@ -430,19 +430,8 @@ p {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(1.5); /* Increases brightness by 40% */
+    filter: brightness(4); /* Increases brightness by 40% */
     z-index: -2; /* Places the video behind the content */
-}
-
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.3); /* Adds a light overlay to brighten the video */
-    z-index: -1; /* Ensures the overlay is above the video but behind the content */
-    pointer-events: none; /* Allows interaction with elements underneath the overlay */
 }
 
 .hero-section .content {
