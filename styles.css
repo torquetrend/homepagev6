@@ -449,7 +449,7 @@ p {
 .hero-overlay {
     position: relative;
     z-index: 2;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.7);
     padding: var(--spacing-lg) var(--spacing-xl);
     border-radius: var(--radius-lg);
     max-width: 800px;
