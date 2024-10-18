@@ -425,7 +425,7 @@ function loadRecommendedArticles() {
             recommendationsContainer.innerHTML = '';
             articles.forEach(article => {
                 const articleItem = document.createElement('div');
-                articleItem.classList.add('.article-card');
+                articleItem.classList.add('article-grid-item');
 
                 articleItem.innerHTML = `
                     <img src="${article.image}" alt="${article.title}">
