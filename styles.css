@@ -430,7 +430,7 @@ p {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(4); /* Increases brightness */
+    filter: brightness(1.5); /* Adjusted brightness to better suit mobile */
     z-index: -2; /* Places the video behind everything else */
 }
 
@@ -509,12 +509,24 @@ p {
 }
 
 @media (max-width: 768px) {
+    .hero-section {
+        height: 70vh; /* Reduce height for mobile view to fit better */
+    }
+
+    .background-video {
+        object-fit: contain; /* Adjust object fit for smaller screens */
+    }
+
+    .hero-content {
+        padding: var(--spacing-md); /* Reduce padding for mobile */
+    }
+
     .hero-content h1 {
-        font-size: 2rem;
+        font-size: 1.75rem;
     }
 
     .hero-content p {
-        font-size: var(--font-size-medium);
+        font-size: var(--font-size-small);
     }
 
     .btn-primary {
