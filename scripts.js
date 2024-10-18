@@ -458,19 +458,19 @@ function fetchArticlesByIds(ids) {
                 id: 'article1',
                 title: 'Age of Electric Vehicles',
                 description: 'How electric vehicles are reshaping the automotive industry.',
-                image: 'images/car-charging.jpg'
+                image: 'car charging.jpg'
             },
             {
                 id: 'article2',
                 title: 'Autonomous Drivers?',
                 description: 'Our world with fully self-driving cars.',
-                image: 'images/waymo.jpg'
+                image: 'waymo.jpg'
             },
             {
                 id: 'article3',
                 title: 'Sustainable Critical Materials',
                 description: 'Exploring the impacts of critical materials and our daily driving needs.',
-                image: 'images/lithium-mine.jpg'
+                image: 'lithium-mine.jpg'
             },
             // Add more articles as needed
         ];
