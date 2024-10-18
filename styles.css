@@ -415,54 +415,61 @@ p {
     position: relative;
     height: 100vh;
     margin-top: 60px;
-    background: url('f1.mp4') no-repeat center center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--color-light);
     text-align: center;
+    overflow: hidden;
 }
 
-.hero-section::before {
-    content: '';
+.background-video {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--color-overlay);
-    z-index: 1;
+    object-fit: cover;
+    /* Removed brightness filter */
+    z-index: -1; /* Adjusted z-index after removing overlay */
 }
 
-.hero-overlay {
-    position: relative;
-    z-index: 2;
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: var(--spacing-lg) var(--spacing-xl);
-    border-radius: var(--radius-lg);
-    max-width: 800px;
-    animation: fadeInUp 1s ease-out forwards;
+.hero-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-lg); /* Add padding to avoid text touching the edges */
+    z-index: 1; /* Ensure the content is above the video */
+    box-sizing: border-box; /* Include padding in height and width calculations */
 }
 
 .hero-content h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     margin-bottom: var(--spacing-sm);
     font-family: var(--font-primary);
-    color: #000000;
 }
 
 .hero-content p {
-    font-size: var(--font-size-large);
+    font-size: var(--font-size-medium);
     margin-bottom: var(--spacing-lg);
-    color: #000000;
+}
+
+.hero-content a:hover {
+    box-shadow: 0 0 10px var(--color-accent), 0 0 5px var(--color-accent);
 }
 
 .btn-primary {
     background-color: var(--color-accent);
     color: var(--color-light);
-    padding: var(--spacing-sm) var(--spacing-lg);
+    padding: var(--spacing-xs) var(--spacing-sm);
     border-radius: var(--radius-full);
-    font-size: var(--font-size-medium);
+    font-size: var(--font-size-small);
     transition: background-color var(--transition-speed) var(--transition-ease),
                 transform var(--transition-speed) var(--transition-ease);
     display: inline-flex;
@@ -487,6 +494,33 @@ p {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        height: 70vh; /* Reduce height for mobile view to fit better */
+    }
+
+    .background-video {
+        object-fit: cover; /* Ensure cover for mobile */
+    }
+
+    .hero-content {
+        padding: var(--spacing-md); /* Reduce padding for mobile */
+    }
+
+    .hero-content h1 {
+        font-size: 1.75rem;
+    }
+
+    .hero-content p {
+        font-size: var(--font-size-small);
+    }
+
+    .btn-primary {
+        padding: var(--spacing-xs) var(--spacing-sm);
+        font-size: var(--font-size-small);
     }
 }
 
